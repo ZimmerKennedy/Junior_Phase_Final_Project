@@ -1,38 +1,32 @@
-import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = [];
 
-export const fetchCampusAsync = createAsyncThunk('allCampus', async() =>{
-    try{
-        const { data } = await axios.get(`/api/campus`)
-        return data
-    } catch (error){
+
+export const fetchCampusAsync = createAsyncThunk('allCampus', async () => {
+    try {
+        const { data } = await axios.get(`http://localhost:3000/api/campus`)
+        return data;
+    } catch (error) {
         console.log(error);
     }
 });
 
 const campusSlice = createSlice({
-    name:'campuses',
-    initialState,
+    name: 'campuses',
+    initialState: [],
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchCampusAsync.fulfilled, (state,action) =>{
+        builder.addCase(fetchCampusAsync.fulfilled, (state, action) => {
             return action.payload;
         });
     },
 });
 
-export const selectCampuses = (state) =>{
-    return state.campusSlice
+export const selectCampuses = (state) => {
+    console.log(`state.campus`, state.campus)
+    return state.campus
 };
 
 export default campusSlice.reducer
 
-// import {createSlice} from '@reduxjs/toolkit'
-
-// export const campusSlice = createSlice({
-//     name:'campuses',
-//     initialState: [],
-//     reducers:{}
-// })
