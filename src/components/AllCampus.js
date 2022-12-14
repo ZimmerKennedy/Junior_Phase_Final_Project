@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { selectCampuses } from "../features/campusSlice";
 import { fetchCampusAsync } from "../features/campusSlice";
 import { Link, useNavigate } from "react-router-dom";
+import ACampus from "./ACampus"
+
 
 const AllCampus = () => {
   const campuses = useSelector(selectCampuses)
@@ -17,7 +19,9 @@ const AllCampus = () => {
 
   const renderedCampuses = campuses.map(campus => (
     <article key={campus.id}>
-      <h1>{campus.name}</h1>
+      <h1>
+        <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link>
+      </h1>
       <p>{campus.address}</p>
     </article>
   ))

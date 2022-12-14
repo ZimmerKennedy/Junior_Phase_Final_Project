@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { selectStudent } from "../features/studentSlice";
 import { fetchStudentAsync } from "../features/studentSlice";
 import { Link, useNavigate } from "react-router-dom";
+import AStudent from "./AStudent";
 
 const AllStudents = () => {
   const students = useSelector(selectStudent)
@@ -17,7 +18,9 @@ const AllStudents = () => {
 
   const renderedStudents = students.map(student => (
     <article key={student.id}>
-      <h1>{student.firstName} {student.lastName}</h1>
+      <h1>
+        <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
+      </h1>
     </article>
   ))
   return (

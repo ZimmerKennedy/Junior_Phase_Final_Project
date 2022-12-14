@@ -24,7 +24,7 @@ const studentSlice = createSlice({
 });
 
 export const selectStudent = (state) => {
-    console.log(`state.campus`, state.student)
+    console.log(`state.campus from studentSlice`, state.student)
     return state.student
 };
 

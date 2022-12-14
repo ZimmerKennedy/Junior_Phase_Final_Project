@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
-
+// ALL CAMPUS
 export const fetchCampusAsync = createAsyncThunk('allCampus', async () => {
     try {
         const { data } = await axios.get(`http://localhost:3000/api/campus`)
@@ -12,7 +11,11 @@ export const fetchCampusAsync = createAsyncThunk('allCampus', async () => {
     }
 });
 
-const campusSlice = createSlice({
+
+
+
+// ALL CAMPUS
+export const campusSlice = createSlice({
     name: 'campuses',
     initialState: [],
     reducers: {},
@@ -24,7 +27,7 @@ const campusSlice = createSlice({
 });
 
 export const selectCampuses = (state) => {
-    console.log(`state.campus`, state.campus)
+    console.log(`state.campus from campusSlice`, state.campus)
     return state.campus
 };
 

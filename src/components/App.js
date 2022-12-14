@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route, Link } from "react-router-dom"
 import AllCampus from './AllCampus.js';
 import AllStudents from './AllStudent.js';
+import ACampus from './ACampus.js';
+import AStudent from './AStudent.js';
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
       <Routes>
         <Route path='/AllCampus' element={<AllCampus />} />
         <Route path='/AllStudents' element={<AllStudents />} />
+        <Route path='/ACampus/:id' element={<ACampus />} />
+        <Route path='/AStudent/:id' element={<AStudent />} />
       </Routes>
     </div>
 
