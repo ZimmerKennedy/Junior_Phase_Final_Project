@@ -6,27 +6,20 @@ import { fetchACampusAsync, selectACampus } from '../features/aCampusSlice';
 
 
 export const ACampus = () => {
-    const [campusName, setCampusName] = useState("");
-    const [campusAddress, setCampusAddress] = useState("");
-    const [campusDescription, setCampusDescription] = useState("");
     const campus = useSelector(selectACampus)
+    console.log(`campus from ACampus.js`, campus)
     const dispatch = useDispatch()
     const { id } = useParams();
 
     useEffect(() =>{
-        dispatch(fetchACampusAsync(id)).then((res) =>{
-        const {name, imageUrl, address, description} = res.payload;
-        setCampusName(name);
-        setCampusAddress(address);
-        setCampusDescription(description)
-        })
+        dispatch(fetchACampusAsync(id))
     }, [id])
   return (
     <>
     First of all Hi from aCampus.js
-    <h1>{campusName}</h1>
-    <h2>{campusAddress}</h2>
-    <p>{campusDescription}</p>
+    <h1>{campus.name}</h1>
+    <h2>{campus.address}</h2>
+    <p>{campus.description}</p>
     </>
   )
 }

@@ -33,4 +33,4 @@ const AllCampus = () => {
   )
 }
 
-export default AllCampus
+export default AllCampus;
