@@ -6,23 +6,19 @@ import { fetchAStudentAsync, selectAStudent } from '../features/aStudentSlice';
 
 
 export const AStudent = () => {
-    const [studentFirstName, setstudentFirstName] = useState("");
-    const [studentLastName, setstudentLastName] = useState("");
     const student = useSelector(selectAStudent)
     const dispatch = useDispatch()
     const { id } = useParams();
 
     useEffect(() =>{
-        dispatch(fetchAStudentAsync(id)).then((res) =>{
-        const {firstName, lastName, imageUrl, email} = res.payload;
-        setstudentFirstName(firstName);
-        setstudentLastName(lastName);
-        })
+      dispatch(fetchAStudentAsync(id))
     }, [id])
+  
+    
   return (
     <>
     First of all Hi from AStudent.js
-    <h1>{studentFirstName} {studentLastName}</h1>
+    <h1>{student.firstName} {student.lastName}</h1>
     </>
   )
 }

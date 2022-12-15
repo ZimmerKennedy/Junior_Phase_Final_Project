@@ -4,24 +4,24 @@ const db = require('../db')
 const Student = db.define('student', {
     firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        },
+        // allowNull: false,
+        // validate: {
+        //     notEmpty: true,
+        // },
     },
     lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        },
+        // allowNull: false,
+        // validate: {
+        //     notEmpty: true,
+        // },
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-        },
+        // allowNull: false,
+        // validate: {
+        //     isEmail: true,
+        // },
         unique: true,
         // might be broken check again for future ||
         // Come Back here to fix email validation future

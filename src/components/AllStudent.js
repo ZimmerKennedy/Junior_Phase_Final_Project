@@ -37,7 +37,7 @@ const AllStudents = () => {
   ))
   return (
     <>
-      {/* <form id='create-form-student' onSubmit={handleSubmit}>
+      <form id='create-form-student' onSubmit={handleSubmit}>
         <label htmlFor='createFirstName'>First Name</label>
         <input
           name='createFirstName'
@@ -51,7 +51,7 @@ const AllStudents = () => {
           onChange={(e) => setLastName(e.target.value)}
         />
         <button type="submit">Submit</button>
-      </form> */}
+      </form>
 
       <section>
         <h2> Students </h2>
