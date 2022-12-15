@@ -1,18 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { selectStudent } from "../features/studentSlice";
-import { fetchStudentAsync } from "../features/studentSlice";
+import { fetchStudentAsync, addStudentAsync } from "../features/studentSlice";
 import { Link, useNavigate } from "react-router-dom";
 import AStudent from "./AStudent";
 
 const AllStudents = () => {
+
   const students = useSelector(selectStudent)
   const dispatch = useDispatch();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchStudentAsync());
   }, [dispatch]);
+
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log(`handleSubmitAddStudent`, firstName, lastName)
+    dispatch(addStudentAsync({ firstName, lastName }));
+    navigate("/");
+  }
 
 
 
@@ -24,10 +36,28 @@ const AllStudents = () => {
     </article>
   ))
   return (
-    <section>
-      <h2> Students </h2>
-      {renderedStudents}
-    </section>
+    <>
+      {/* <form id='create-form-student' onSubmit={handleSubmit}>
+        <label htmlFor='createFirstName'>First Name</label>
+        <input
+          name='createFirstName'
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label htmlFor='createLastName'>Last Name</label>
+        <input
+          name='createLastName'
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form> */}
+
+      <section>
+        <h2> Students </h2>
+        {renderedStudents}
+      </section>
+    </>
   )
 }
 

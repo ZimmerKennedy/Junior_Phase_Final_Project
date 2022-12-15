@@ -5,7 +5,6 @@ import axios from "axios";
 export const fetchAStudentAsync = createAsyncThunk('aStudent', async(id) =>{
     try{
         const {data} = await axios.get(`http://localhost:3000/api/students/${id}`)
-        console.log(`Hi im data from aStudentSlice`, data )
         return data;
     } catch (error){
         console.log(error)
@@ -27,7 +26,6 @@ export const aStudent = createSlice({
 })
 
 export const selectAStudent = (state) => {
-   console.log(`selectAStudent from aStudentSlice`, state.aStudent)
     return state.aStudent
 };
 

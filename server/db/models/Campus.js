@@ -4,10 +4,10 @@ const db = require('../db')
 const Campus = db.define('campus', {
     name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        },
+        // allowNull: false,
+        // validate: {
+        //     notEmpty: true,
+        // },
     },
     imageUrl: {
         type: DataTypes.TEXT,
@@ -19,10 +19,10 @@ const Campus = db.define('campus', {
     },
     address: {
         type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        },
+        // allowNull: false,
+        // validate: {
+        //     notEmpty: true,
+        // },
     },
     description: {
         type: DataTypes.TEXT,

@@ -4,6 +4,9 @@ const cors = require('cors')
 const volleyball = require('volleyball')
 const app = express()
 
+// JSON
+app.use(express.json());
+
 // const router = require('express').Router();
 // router.use('/campus',require('./api/campuses'))
 app.use('/api', require('./api'))

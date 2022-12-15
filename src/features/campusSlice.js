@@ -11,8 +11,22 @@ export const fetchCampusAsync = createAsyncThunk('allCampus', async () => {
     }
 });
 
-
-
+export const addCampusAsync = createAsyncThunk('campus/addCampus',
+    async ({ name, address, description }) => {
+        console.log(`this is name`,name)
+        console.log(`this is address`,address)
+        console.log(`this is description`,description)
+        try{
+            const { data } = await axios.post('http://localhost:3000/api/campus',{
+                name,
+                address,
+                description
+            });
+                return data;
+            } catch(error){
+            console.log(error);
+            }
+        });
 
 // ALL CAMPUS
 export const campusSlice = createSlice({
@@ -23,11 +37,18 @@ export const campusSlice = createSlice({
         builder.addCase(fetchCampusAsync.fulfilled, (state, action) => {
             return action.payload;
         });
+
+        // ADD CAMPUS
+        builder.addCase(addCampusAsync.fulfilled, (state, action) => {
+            state.push(action.payload)
+
+        })
     },
 });
 
+// export const { addUser } = campusSlice.actions
+
 export const selectCampuses = (state) => {
-    console.log(`state.campus from campusSlice`, state.campus)
     return state.campus
 };
 
