@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { selectStudent } from "../features/studentSlice";
 import { fetchStudentAsync, addStudentAsync } from "../features/studentSlice";
 import { Link, useNavigate } from "react-router-dom";
-import AStudent from "./AStudent";
 
 const AllStudents = () => {
 

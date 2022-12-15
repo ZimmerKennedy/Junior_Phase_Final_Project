@@ -6,6 +6,8 @@ import { fetchStudentAsync } from '../features/studentSlice'
 import { Link } from "react-router-dom";
 
 
+
+
 export const Home = () => {
     const campuses = useSelector(selectCampuses)
     const students = useSelector(selectStudent)
@@ -15,12 +17,15 @@ export const Home = () => {
         dispatch(fetchCampusAsync());
     }, [dispatch]);
 
+
+
     const renderedCampuses = campuses.map(campus => (
         <>
             <li key={campus.id}> {campus.id}
                 <ul> <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link> </ul>
                 <ul> {campus.address} </ul>
             </li>
+            
         </>
     ))
 

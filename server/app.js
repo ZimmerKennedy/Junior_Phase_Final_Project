@@ -7,19 +7,15 @@ const app = express()
 // JSON
 app.use(express.json());
 
-// const router = require('express').Router();
-// router.use('/campus',require('./api/campuses'))
-app.use('/api', require('./api'))
 
 // static middleware
-app.use(express.static(path.join(__dirname, '..','public')))
 
 app.use(cors())
 app.use(volleyball)
 
-// COME BACK HERE AFTER API FINISHED!! AND RECOMMENT
-// app.use('/api', require('./api'))
+app.use('/api', require('./api'))
 
+app.use(express.static(path.join(__dirname, '..','public')))
 // This middleware will catch any URLs resembling a file extension
 // for example: .js, .html, .css
 // This allows for proper 404s instead of the wildcard '#<{(|' catching

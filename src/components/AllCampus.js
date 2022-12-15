@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from 'react'
 import { addCampusAsync, selectCampuses } from "../features/campusSlice";
 import { fetchCampusAsync } from "../features/campusSlice";
-import { Link, useNavigate } from "react-router-dom";
-import ACampus from "./ACampus"
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const AllCampus = () => {
   const [name, setName] = useState("");

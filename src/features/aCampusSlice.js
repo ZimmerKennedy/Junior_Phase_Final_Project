@@ -11,6 +11,10 @@ export const fetchACampusAsync = createAsyncThunk('aCampus', async(id) =>{
     }
 })
 
+export const deleteCampusAsync = createAsyncThunk('delete/campus', async(id) =>{
+    const { data } = await axios.delete(`http://localhost:3000/api/campus/${id}/`);
+    return data
+})
 
 
 // 1 CAMPUS
@@ -21,9 +25,13 @@ export const aCampus = createSlice({
     extraReducers:(builder) =>{
         builder.addCase(fetchACampusAsync.fulfilled,(state,action) =>{
             return action.payload
+        });
+        builder.addCase(deleteCampusAsync.fulfilled, (state,action) =>{
+            console.log(`Deleted a Campus`, action)
+            return action.payload
         })
-    }
-})
+    },
+});
 
 export const selectACampus = (state) => {
     return state.aCampus

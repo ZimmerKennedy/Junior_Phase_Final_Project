@@ -35,4 +35,16 @@ router.get('/:campusId', async(req,res,next) =>{
     }
 })
 
+// DELETE /api/campus/:campusId
+
+router.delete('/:campusId', async(req,res,next) =>{
+    try{
+        const campus = await Campus.findByPk(req.params.campusId);
+        await campus.destroy();
+        res.send(campus);
+    } catch (error){
+        next(error);
+    }
+})
+
 module.exports = router
