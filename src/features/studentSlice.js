@@ -18,7 +18,8 @@ export const addStudentAsync = createAsyncThunk('students/addStudent',
         try{
             const { data } = await axios.post('http://localhost:3000/api/students',{
                 firstName,
-                lastName
+                lastName,
+                
             });
                 return data;
             } catch(error){

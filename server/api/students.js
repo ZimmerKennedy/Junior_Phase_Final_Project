@@ -6,7 +6,7 @@ const { Campus, Student } = require('../db')
 router.get('/', async (req, res, next) => {
     try {
         const students = await Student.findAll({
-            attributes: ['id', 'firstName', 'lastName', 'imageUrl']
+            attributes: ['id', 'firstName', 'lastName', 'imageUrl', 'email']
         });
         res.json(students)
     } catch (error) {
@@ -43,6 +43,16 @@ router.delete('/:studentId', async (req, res, next) => {
         await student.destroy();
         res.send(student);
     } catch (error) {
+        next(error);
+    }
+})
+
+// put/api/student/:id
+router.put('/:studentId', async(req,res,next) =>{
+    try{
+        const student = await Student.findByPk(req.params.studentId);
+        res.send(await student.update(req.body));
+    } catch (error){
         next(error);
     }
 })

@@ -4,17 +4,17 @@ const db = require('../db')
 const Student = db.define('student', {
     firstName: {
         type: DataTypes.STRING,
-        // allowNull: false,
-        // validate: {
-        //     notEmpty: true,
-        // },
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     lastName: {
         type: DataTypes.STRING,
-        // allowNull: false,
-        // validate: {
-        //     notEmpty: true,
-        // },
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     email: {
         type: DataTypes.STRING,
@@ -34,7 +34,6 @@ const Student = db.define('student', {
     },
     imageUrl: {
         type: DataTypes.TEXT,
-        // double check this in the future if broken
         defaultValue:
             'https://cdn.pixabay.com/photo/2021/02/18/12/03/people-6027028_960_720.jpg',
     },

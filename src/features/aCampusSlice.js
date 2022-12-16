@@ -43,7 +43,7 @@ export const aCampus = createSlice({
             console.log(`editCampusACAction`,action)
             console.log(`editCampusACAction`, state)
             return action.payload
-        })
+        });
     },
 });
 

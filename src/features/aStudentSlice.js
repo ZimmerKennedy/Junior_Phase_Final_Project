@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { addStudentAsync } from "./studentSlice";
 
 // 1 STUDENT
 export const fetchAStudentAsync = createAsyncThunk('aStudent', async(id) =>{
@@ -17,6 +18,13 @@ export const deleteStudentAsync = createAsyncThunk('delete/student', async(id) =
     return data
 })
 
+export const editStudentAsync = createAsyncThunk('edit/student', async(student) =>{
+    const {id, firstName, lastName, email} = student;
+    const updateStudent = {firstName, lastName, email};
+    const { data } = await axios.put(`http://localhost:3000/api/students/${id}`, updateStudent)
+    return data;
+})
+
 // 1 STUDENT
 export const aStudent = createSlice({
     name:"aStudent",
@@ -29,6 +37,9 @@ export const aStudent = createSlice({
         builder.addCase(deleteStudentAsync.fulfilled, (state,action) => {
             return action.payload
         });
+        builder.addCase(addStudentAsync.fulfilled, (state,action) =>{
+            return action.payload
+        })
     },
 });
 

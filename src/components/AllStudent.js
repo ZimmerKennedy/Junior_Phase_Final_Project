@@ -32,6 +32,8 @@ const AllStudents = () => {
       <h1>
         <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
       </h1>
+      <p> {student.email}</p>
+      {/* <img src={student.imageUrl} /> */}
     </article>
   ))
   return (

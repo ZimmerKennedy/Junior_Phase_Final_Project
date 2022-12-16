@@ -50,9 +50,8 @@ router.delete('/:campusId', async (req, res, next) => {
 // EDIT /api/campus/:campusId
 
 router.put('/:campusId', async(req,res,next) =>{
-    console.log(`this is req`,req.body)
     try{
-        const campus = await Campus.findByPk(req.params.id);
+        const campus = await Campus.findByPk(req.params.campusId);
         res.send(await campus.update(req.body));
     } catch (error){
         next(error);

@@ -19,13 +19,11 @@ const AllCampus = () => {
 
 
   const handleSubmit = (evt) => {
-    if(evt.target.value === undefined){
-      alert('Fill in Required')
-    } else {
+    
       evt.preventDefault();
       dispatch(addCampusAsync({ name, address, description }));
       navigate("/");
-     }
+     
   }
 
 
@@ -35,6 +33,7 @@ const AllCampus = () => {
         <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link>
       </h1>
       <p>{campus.address}</p>
+      {/* <img src="{campus.imageUrl}" /> */}
     </article>
   ))
   return (
