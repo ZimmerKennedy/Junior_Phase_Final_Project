@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-
+// ALL STUDENTS
 export const fetchStudentAsync = createAsyncThunk('allStudent', async () => {
     try {
         const { data } = await axios.get(`http://localhost:3000/api/students`)
@@ -11,7 +11,7 @@ export const fetchStudentAsync = createAsyncThunk('allStudent', async () => {
         console.log(error);
     }
 });
-
+// ADD A STUDENT
 export const addStudentAsync = createAsyncThunk('students/addStudent',
     async ({ firstName, lastName }) => {
         console.log(`addStudentThunk`, firstName, lastName)

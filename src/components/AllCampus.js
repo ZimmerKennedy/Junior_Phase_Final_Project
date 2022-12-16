@@ -19,10 +19,13 @@ const AllCampus = () => {
 
 
   const handleSubmit = (evt) => {
-    evt.preventDefault();
-    console.log(`handleSubmitAC`, name,address,description)
-    dispatch(addCampusAsync({ name, address, description }));
-    navigate("/");
+    if(evt.target.value === undefined){
+      alert('Fill in Required')
+    } else {
+      evt.preventDefault();
+      dispatch(addCampusAsync({ name, address, description }));
+      navigate("/");
+     }
   }
 
 

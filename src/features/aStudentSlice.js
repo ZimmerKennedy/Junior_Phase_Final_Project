@@ -11,6 +11,7 @@ export const fetchAStudentAsync = createAsyncThunk('aStudent', async(id) =>{
     }
 })
 
+// DELETE A STUDENT
 export const deleteStudentAsync = createAsyncThunk('delete/student', async(id) =>{
     const { data } = await axios.delete(`http://localhost:3000/api/students/${id}/`);
     return data

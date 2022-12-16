@@ -10,7 +10,7 @@ export const fetchCampusAsync = createAsyncThunk('allCampus', async () => {
         console.log(error);
     }
 });
-
+// ADD A CAMPUS
 export const addCampusAsync = createAsyncThunk('campus/addCampus',
     async ({ name, address, description }) => {
         console.log(`this is name`,name)

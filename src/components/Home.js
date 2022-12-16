@@ -21,18 +21,18 @@ export const Home = () => {
 
     const renderedCampuses = campuses.map(campus => (
         <>
-            <li key={campus.id}> {campus.id}
-                <ul> <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link> </ul>
-                <ul> {campus.address} </ul>
-            </li>
-            
+            <ul key={campus.id}>
+                <li> <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link> </li>
+                <li> {campus.address} </li>
+            </ul>
+
         </>
     ))
 
     const renderedStudents = students.map(student => (
-        <li key={student.id}> {student.id}
+        <ul key={student.id}>
             <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
-        </li>
+        </ul>
     ))
     return (
         <>

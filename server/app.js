@@ -15,7 +15,7 @@ app.use(volleyball)
 
 app.use('/api', require('./api'))
 
-app.use(express.static(path.join(__dirname, '..','public')))
+app.use(express.static(path.join(__dirname, '..', 'public')))
 // This middleware will catch any URLs resembling a file extension
 // for example: .js, .html, .css
 // This allows for proper 404s instead of the wildcard '#<{(|' catching

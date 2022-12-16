@@ -6,13 +6,14 @@ import ACampus from './ACampus.js';
 import AStudent from './AStudent.js';
 import Home from './Home.js'
 
+
 const App = () => {
   return (
     <div className='App'>
       <nav>
         <Link to="/AllCampus">Campuses</Link>
         <Link to="/AllStudents">Students</Link>
-        <Link to="/"> Home </Link>
+        <Link to="/"> Home </Link>   
       </nav>
       <Routes>
         <Route path='/AllCampus' element={<AllCampus />} />
