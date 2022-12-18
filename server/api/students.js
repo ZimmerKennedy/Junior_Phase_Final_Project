@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Campus, Student } = require('../db')
+const {Student } = require('../db')
 
 // GET /api/students
 
@@ -48,11 +48,11 @@ router.delete('/:studentId', async (req, res, next) => {
 })
 
 // put/api/student/:id
-router.put('/:studentId', async(req,res,next) =>{
-    try{
+router.put('/:studentId', async (req, res, next) => {
+    try {
         const student = await Student.findByPk(req.params.studentId);
         res.send(await student.update(req.body));
-    } catch (error){
+    } catch (error) {
         next(error);
     }
 })

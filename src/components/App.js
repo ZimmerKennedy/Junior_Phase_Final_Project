@@ -13,7 +13,7 @@ const App = () => {
       <nav>
         <Link to="/AllCampus">Campuses</Link>
         <Link to="/AllStudents">Students</Link>
-        <Link to="/"> Home </Link>   
+        <Link to="/"> Home </Link>
       </nav>
       <Routes>
         <Route path='/AllCampus' element={<AllCampus />} />

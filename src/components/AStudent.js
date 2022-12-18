@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteStudentAsync, fetchAStudentAsync, selectAStudent, editStudentAsync } from '../features/aStudentSlice';
@@ -38,7 +37,6 @@ export const AStudent = () => {
 
   return (
     <>
-      First of all Hi from AStudent.js
       <h1>{student.firstName} {student.lastName}</h1>
 
       <form id="studentEdit" onSubmit={handleSubmit}>
@@ -63,7 +61,7 @@ export const AStudent = () => {
         />
         <button type="submit">Edit</button>
 
-      <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </form>
     </>
   )

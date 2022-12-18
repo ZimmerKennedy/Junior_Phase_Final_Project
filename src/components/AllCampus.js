@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from 'react'
-import { addCampusAsync, selectCampuses } from "../features/campusSlice";
-import { fetchCampusAsync } from "../features/campusSlice";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { addCampusAsync, selectCampuses, fetchCampusAsync } from "../features/campusSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllCampus = () => {
   const [name, setName] = useState("");
@@ -19,11 +18,11 @@ const AllCampus = () => {
 
 
   const handleSubmit = (evt) => {
-    
-      evt.preventDefault();
-      dispatch(addCampusAsync({ name, address, description }));
-      navigate("/");
-     
+
+    evt.preventDefault();
+    dispatch(addCampusAsync({ name, address, description }));
+    navigate("/");
+
   }
 
 
@@ -33,7 +32,6 @@ const AllCampus = () => {
         <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link>
       </h1>
       <p>{campus.address}</p>
-      {/* <img src="{campus.imageUrl}" /> */}
     </article>
   ))
   return (

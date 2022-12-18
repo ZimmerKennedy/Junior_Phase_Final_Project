@@ -18,7 +18,6 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        console.log(`hi im req`, req.body)
         res.status(201).send(await Campus.create(req.body))
     } catch (error) {
         next(error);
@@ -49,11 +48,11 @@ router.delete('/:campusId', async (req, res, next) => {
 
 // EDIT /api/campus/:campusId
 
-router.put('/:campusId', async(req,res,next) =>{
-    try{
+router.put('/:campusId', async (req, res, next) => {
+    try {
         const campus = await Campus.findByPk(req.params.campusId);
         res.send(await campus.update(req.body));
-    } catch (error){
+    } catch (error) {
         next(error);
     }
 })

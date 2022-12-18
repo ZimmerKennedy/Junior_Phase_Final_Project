@@ -1,9 +1,7 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchACampusAsync, selectACampus } from '../features/aCampusSlice';
-import { deleteCampusAsync, editCampusAsync } from '../features/aCampusSlice'
+import { fetchACampusAsync, selectACampus, deleteCampusAsync, editCampusAsync } from '../features/aCampusSlice';
 
 export const ACampus = () => {
 
@@ -40,7 +38,6 @@ export const ACampus = () => {
 
   return (
     <>
-      First of all Hi from aCampus.js
       <h1>{campus.name}</h1>
       <h2>{campus.address}</h2>
       <p>{campus.description}</p>
@@ -52,6 +49,7 @@ export const ACampus = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <br></br>
 
         <label htmlFor="address">Campus Address</label>
         <input
@@ -59,12 +57,15 @@ export const ACampus = () => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
+        <br></br>
         <label htmlFor="description">Campus Description</label>
         <input
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+        <br></br>
+        <br></br>
         <button type="submit">Edit</button>
         <button onClick={handleDelete}>Delete </button>
       </form>

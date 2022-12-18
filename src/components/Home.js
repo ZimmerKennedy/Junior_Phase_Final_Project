@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCampusAsync, selectCampuses } from '../features/campusSlice'
-import { selectStudent } from '../features/studentSlice'
-import { fetchStudentAsync } from '../features/studentSlice'
+import { selectStudent, fetchStudentAsync } from '../features/studentSlice'
 import { Link } from "react-router-dom";
 
 
@@ -21,18 +20,21 @@ export const Home = () => {
 
     const renderedCampuses = campuses.map(campus => (
         <>
-            <ul key={campus.id}>
-                <li> <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link> </li>
-                <li> {campus.address} </li>
-            </ul>
+            <div key={campus.id} >
+                <h2> <Link to={`/ACampus/${campus.id}`}> {campus.name}</Link> </h2>
+                <h3> {campus.address} </h3>
+            </div>
+
 
         </>
     ))
 
     const renderedStudents = students.map(student => (
-        <ul key={student.id}>
-            <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
-        </ul>
+        <div key={student.id}>
+            <h2>
+                <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
+            </h2>
+        </div>
     ))
     return (
         <>

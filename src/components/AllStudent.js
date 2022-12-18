@@ -20,7 +20,6 @@ const AllStudents = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(`handleSubmitAddStudent`, firstName, lastName)
     dispatch(addStudentAsync({ firstName, lastName }));
     navigate("/");
   }
@@ -33,7 +32,6 @@ const AllStudents = () => {
         <Link to={`/AStudent/${student.id}`}> {student.firstName} {student.lastName}</Link>
       </h1>
       <p> {student.email}</p>
-      {/* <img src={student.imageUrl} /> */}
     </article>
   ))
   return (

@@ -19,9 +19,9 @@ export const deleteCampusAsync = createAsyncThunk('delete/campus', async (id) =>
 
 // EDIT A CAMPUS
 
-export const editCampusAsync = createAsyncThunk('edit/campus', async(campus) =>{
-    const {id, name, address, description} = campus;
-    const updateCampus = {name, address, description};
+export const editCampusAsync = createAsyncThunk('edit/campus', async (campus) => {
+    const { id, name, address, description } = campus;
+    const updateCampus = { name, address, description };
     const { data } = await axios.put(`http://localhost:3000/api/campus/${id}`, updateCampus)
     return data;
 })
@@ -36,12 +36,9 @@ export const aCampus = createSlice({
             return action.payload
         });
         builder.addCase(deleteCampusAsync.fulfilled, (state, action) => {
-            console.log(`Deleted a Campus`, action)
             return action.payload
         });
-        builder.addCase(editCampusAsync.fulfilled, (state, action) =>{
-            console.log(`editCampusACAction`,action)
-            console.log(`editCampusACAction`, state)
+        builder.addCase(editCampusAsync.fulfilled, (state, action) => {
             return action.payload
         });
     },
